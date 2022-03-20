@@ -10,3 +10,6 @@ console.log(add(20, 30));
 console.log(_.join(['123', '1123'], '-'));
 // _.join([]);
 // join();
+
+import mul from './ts/mul';
+console.log(mul(10, 20));
