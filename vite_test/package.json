@@ -5,7 +5,8 @@
     "lodash-es": "^4.17.21",
     "postcss": "^8.4.12",
     "postcss-preset-env": "^7.4.3",
-    "vite": "^2.8.6"
+    "vite": "^2.8.6",
+    "vue": "^3.2.31"
   },
   "name": "vite_test",
   "version": "1.0.0",
@@ -16,5 +17,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.2.4"
+  }
 }

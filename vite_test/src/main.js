@@ -13,3 +13,9 @@ console.log(_.join(['123', '1123'], '-'));
 
 import mul from './ts/mul';
 console.log(mul(10, 20));
+
+// vue
+import { createApp } from 'vue';
+import App from './vue/app.vue';
+
+createApp(App).mount('#app');
