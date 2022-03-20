@@ -1,7 +1,10 @@
 {
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
+    "less": "^4.1.2",
     "lodash-es": "^4.17.21",
+    "postcss": "^8.4.12",
+    "postcss-preset-env": "^7.4.3",
     "vite": "^2.8.6"
   },
   "name": "vite_test",
