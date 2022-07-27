@@ -12,7 +12,7 @@
     <script src="./renderer.js"></script>
     <script>
       // 通过h函数创建vnode，vdom
-      const vnode = h('div', { class: 'wss' }, [
+      const vnode = h('div', { class: 'wss', name: 'wss' }, [
         h('h2', null, '当前计数：100'),
         h(
           'button',
@@ -27,6 +27,12 @@
 
       // 通过 mount 函数，将 vnode 挂载到 #app 上
       mount(vnode, document.querySelector('#app'));
+
+      const vnode1 = h('h2', { class: 'ciyu', name: 'ciyu' }, 'hhh');
+
+      setTimeout(() => {
+        patch(vnode, vnode1);
+      }, 2000);
     </script>
   </body>
 </html>
