@@ -69,5 +69,47 @@ const patch = (n1, n2) => {
         }
       }
     }
+
+    // 处理children null string array
+    let oldChildren = n1.children || [];
+    let newChildren = n2.children || [];
+
+    if (typeof newChildren === 'string') {
+      // 新旧都是string
+      if (typeof oldChildren === 'string') {
+        if (newChildren !== oldChildren) {
+          el.textContent = newChildren;
+        }
+      } else {
+        // 数组转字符串
+        el.innerHTML = newChildren;
+      }
+    } else {
+      // 字符串转数组
+      if (typeof oldChildren === 'string') {
+        el.innerHTML = '';
+        newChildren.forEach((child) => mount(child, el));
+      } else {
+        // 数组转数组
+        const commonLength = Math.min(oldChildren.length, newChildren.length);
+        for (let i = 0; i < commonLength; i++) {
+          patch(oldChildren[i], newChildren[i]);
+        }
+
+        // 新数组的长度大于旧数组
+        if (newChildren.length > oldChildren.length) {
+          newChildren
+            .slice(oldChildren.length)
+            .forEach((child) => mount(child, el));
+        }
+
+        // 旧数组的长度大于新数组
+        if (newChildren.length < oldChildren.length) {
+          oldChildren.slice(newChildren.length).forEach((child) => {
+            el.removeChild(child.el);
+          });
+        }
+      }
+    }
   }
 };
